@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genre Confirmation</title>
+</head>
+<body  style="background-image:url('https://www.yellowpop.com/cdn/shop/products/WPYKBBLGMPOP700.jpg?v=1658934538'); color: black; font-size: larger; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;">
+    >
+
+    <h2>Select Your Favorite Genres:</h2>
+
+    <form id="genreForm">
+        <label>
+            <input type="checkbox" name="genre" value="fantasy"data-url="https://oceanofpdf.com/?id=000954208651">
+            Fantasy
+        </label>
+        <br>
+        <label>
+            <input type="checkbox" name="genre" value="sci-fi"data-url="https://oceanofpdf.com/?id=000954208651">
+            Science Fiction
+        </label>
+        <br>
+        <label>
+            <input type="checkbox" name="genre" value="mystery"data-url="https://oceanofpdf.com/?id=000954208651">
+            Mystery
+        </label>
+        <br><label>
+            <input type="checkbox" name="genre" value="thriller"data-url="https://oceanofpdf.com/?id=000954208651">
+            Thriller
+        </label>
+        <br><label>
+            <input type="checkbox" name="genre" value="horror"data-url="https://oceanofpdf.com/?id=000954208651">
+            Horror
+        </label>
+        <br><label>
+            <input type="checkbox" name="genre" value="romance"data-url="https://oceanofpdf.com/?id=000954208651">
+            Romance
+        </label>
+        <br><label>
+            <input type="checkbox" name="genre" value="crime"data-url="https://oceanofpdf.com/?id=000954208651">
+             Crime
+        </label>
+        <br><label>
+            <input type="checkbox" name="genre" value="children’s literature"data-url="https://oceanofpdf.com/?id=000954208651">
+            Children's Literature
+        </label>
+        <br>
+        <!-- Add more genres as needed -->
+
+        <br>
+        <button type="button" onclick="confirmGenres()">Confirm Genres</button>
+    </form>
+
+    <script>
+        function confirmGenres() {
+            // Get all selected genres
+            const selectedGenres = Array.from(document.querySelectorAll('input[name="genre"]:checked'))
+                .map(checkbox => ({
+                    value: checkbox.value,
+                    url: checkbox.dataset.url
+                }));
+
+            if (selectedGenres.length > 0) {
+                // You can customize this behavior, for example, open each URL in a new tab
+                selectedGenres.forEach(genre => window.open(genre.url, 'https://oceanofpdf.com/?id=000954208651'));
+            } else {
+                alert('Please select at least one genre.');
+            }
+        }
+    </script>
+    
+
+     <h2>Add Book to Library</h2>
+ <form id="addBookForm">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required>
+    
+            <label for="author">Author:</label>
+            <input type="text" id="author" name="author" required>
+    
+            <label for="genre">Genre:</label>
+            <input type="text" id="genre" name="genre" required>
+    
+            <label for="year">Year:</label>
+            <input type="number" id="year" name="year" required>
+    
+            <button type="button" onclick="addBook()">Add Book</button>
+        </form>
+    
+        <script>
+            function addBook() {
+                const title = document.getElementById('title').value;
+                const author = document.getElementById('author').value;
+                const genre = document.getElementById('genre').value;
+                const year = document.getElementById('year').value;
+    
+                // Basic validation
+                if (!title || !author || !genre || !year) {
+                    alert('Please fill in all fields.');
+                    return;
+                }
+    
+                // Create a new book object
+                const book = {
+                    title: title,
+                    author: author,
+                    genre: genre,
+                    year: year,
+                };
+    
+                // Add the book to the library (you might want to send this data to the server in a real-world scenario)
+                console.log('Book added:', book);
+    
+                // Clear the form after submission (optional)
+                document.getElementById('addBookForm').reset();
+            }</script>
+     <a href="page2.html"><button style="border:2px solid black;background-color:aquamarine;">previous</button></a>
+     <br>
+     <a href="page4.html"><button style="border:2px solid black;background-color:aquamarine;">next</button></a>
+ </body>
+</html>
